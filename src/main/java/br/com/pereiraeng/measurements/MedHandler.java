@@ -5,12 +5,12 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.TreeSet;
 
+import br.com.pereiraeng.core.Tag;
+import br.com.pereiraeng.core.TimeUtils;
 import br.com.pereiraeng.math.swing.chart.time.TimePeriod;
 import br.com.pereiraeng.math.timeseries.esp.RegSP;
 import br.com.pereiraeng.math.timeseries.unit.MedH;
 import br.com.pereiraeng.math.timeseries.unit.MedV;
-import br.com.pereiraeng.core.TimeUtils;
-import br.com.pereiraeng.core.Tag;
 
 /**
  * Classe do objeto que retorna as medições solicitadas a uma dada fonte de

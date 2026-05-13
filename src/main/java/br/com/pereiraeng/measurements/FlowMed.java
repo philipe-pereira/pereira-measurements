@@ -2,13 +2,13 @@ package br.com.pereiraeng.measurements;
 
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
+import br.com.pereiraeng.core.Flow;
+import br.com.pereiraeng.core.TimeUtils;
 import br.com.pereiraeng.math.timeseries.Reg;
 import br.com.pereiraeng.math.timeseries.unit.Med;
-import br.com.pereiraeng.core.TimeUtils;
-import br.com.pereiraeng.io.flow.Flow;
 
 public abstract class FlowMed implements Flow<Med> {
 

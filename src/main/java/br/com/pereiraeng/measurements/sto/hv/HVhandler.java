@@ -12,14 +12,16 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Iterator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeSet;
 
+import br.com.pereiraeng.core.Tag;
+import br.com.pereiraeng.core.TimeUtils;
 import br.com.pereiraeng.math.swing.chart.time.TimePeriod;
 import br.com.pereiraeng.math.timeseries.RegP;
 import br.com.pereiraeng.math.timeseries.esp.MedDataType;
@@ -29,8 +31,6 @@ import br.com.pereiraeng.math.timeseries.unit.MedV;
 import br.com.pereiraeng.math.timeseries.unit.Meds;
 import br.com.pereiraeng.measurements.MedHandler;
 import br.com.pereiraeng.physics.Grandeza;
-import br.com.pereiraeng.core.TimeUtils;
-import br.com.pereiraeng.core.Tag;
 
 /**
  * Classe das funções que permitem manipular uma base de dados de medições HV
@@ -740,7 +740,7 @@ public class HVhandler extends MedHandler {
 		return hh;
 	}
 
-	public static String[] getAs(Grandeza... anas) {
+	public static String[] getAs(Grandeza... anas) { // TODO para que serve isso?
 		String[] out = new String[anas.length];
 		for (int i = 0; i < out.length; i++)
 			out[i] = String.valueOf(anas[i].ordinal());

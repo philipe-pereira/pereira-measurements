@@ -32,6 +32,9 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import br.com.pereiraeng.core.Flow;
+import br.com.pereiraeng.core.TimeUtils;
+import br.com.pereiraeng.core.collections.ArrayUtils;
 import br.com.pereiraeng.math.timeseries.Reg;
 import br.com.pereiraeng.math.timeseries.RegP;
 import br.com.pereiraeng.math.timeseries.Seq;
@@ -39,9 +42,6 @@ import br.com.pereiraeng.math.timeseries.esp.RegS;
 import br.com.pereiraeng.math.timeseries.unit.Ct;
 import br.com.pereiraeng.math.timeseries.unit.Med;
 import br.com.pereiraeng.math.timeseries.unit.Meds;
-import br.com.pereiraeng.core.TimeUtils;
-import br.com.pereiraeng.core.collections.ArrayUtils;
-import br.com.pereiraeng.io.flow.Flow;
 
 /**
  *  * Classe das funções que manipulam os arquivos que contém dados de medições
@@ -515,8 +515,9 @@ public class HistMed {
 		try {
 			is = new FileInputStream(f);
 		} catch (FileNotFoundException | NullPointerException e1) {
-			return null;
 		}
+		if (is == null)
+			return null;
 		DataInputStream dis = new DataInputStream(is);
 
 		Meds out = null;
@@ -597,8 +598,9 @@ public class HistMed {
 		try {
 			is = new FileInputStream(f);
 		} catch (FileNotFoundException | NullPointerException e1) {
-			return -1;
 		}
+		if (is == null)
+			return -1;
 		DataInputStream dis = new DataInputStream(is);
 
 		try {
@@ -1444,8 +1446,9 @@ public class HistMed {
 		try {
 			is = new FileInputStream(f);
 		} catch (FileNotFoundException | NullPointerException e1) {
-			return null;
 		}
+		if (is == null)
+			return null;
 		DataInputStream dis = new DataInputStream(is);
 
 		Meds out = null;
@@ -1740,8 +1743,9 @@ public class HistMed {
 		try {
 			is = new FileInputStream(f);
 		} catch (FileNotFoundException | NullPointerException e1) {
-			return null;
 		}
+		if (is == null)
+			return null;
 		DataInputStream dis = new DataInputStream(is);
 
 		boolean[] out = null;
@@ -1908,8 +1912,9 @@ public class HistMed {
 		try {
 			is = new FileInputStream(f);
 		} catch (FileNotFoundException | NullPointerException e1) {
-			return null;
 		}
+		if (is == null)
+			return null;
 		DataInputStream dis = new DataInputStream(is);
 
 		Date out = null;
@@ -1952,9 +1957,9 @@ public class HistMed {
 		try {
 			is = new FileInputStream(f);
 		} catch (FileNotFoundException | NullPointerException e1) {
-			e1.printStackTrace();
-			return null;
 		}
+		if (is == null)
+			return null;
 		DataInputStream dis = new DataInputStream(is);
 
 		Date out = null;

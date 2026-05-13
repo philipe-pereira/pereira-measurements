@@ -13,10 +13,10 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import br.com.pereiraeng.math.timeseries.unit.Med;
+import br.com.pereiraeng.core.Flow;
 import br.com.pereiraeng.core.TimeUtils;
 import br.com.pereiraeng.io.Comm;
-import br.com.pereiraeng.io.flow.Flow;
+import br.com.pereiraeng.math.timeseries.unit.Med;
 
 public class MaxHist {
 

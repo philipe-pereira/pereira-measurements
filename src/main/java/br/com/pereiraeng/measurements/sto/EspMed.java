@@ -23,9 +23,8 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import br.com.pereiraeng.io.flow.Flow;
+import br.com.pereiraeng.core.Flow;
 import br.com.pereiraeng.math.timeseries.unit.Med;
-
 
 /**
  * Classe das funções que manipulam os arquivos que contém dados de medições
@@ -210,18 +209,14 @@ public class EspMed {
 	/**
 	 * Função que lê os dados de valores notáveis de um arquivo .ESP
 	 * 
-	 * @param file
-	 *            arquivo .ESP com os registros
-	 * @param limits
-	 *            lista a ser preenchida com os períodos de tempo. O primeiro índice
-	 *            designa os diferentes instantes de tempo, enquanto que o segundo
-	 *            alterna entre 0 (instante inicial) e 1 (instante final)
-	 * @param meds
-	 *            lista a ser preenchida com os vetores das medições notáveis. O
-	 *            primeiro índice designam os diferentes instantes de tempo,
-	 *            enquanto que o segundo designam os diferentes pontos de medição
-	 * @param tags
-	 *            designação dos valores notáveis
+	 * @param file   arquivo .ESP com os registros
+	 * @param limits lista a ser preenchida com os períodos de tempo. O primeiro
+	 *               índice designa os diferentes instantes de tempo, enquanto que o
+	 *               segundo alterna entre 0 (instante inicial) e 1 (instante final)
+	 * @param meds   lista a ser preenchida com os vetores das medições notáveis. O
+	 *               primeiro índice designam os diferentes instantes de tempo,
+	 *               enquanto que o segundo designam os diferentes pontos de medição
+	 * @param tags   designação dos valores notáveis
 	 */
 	public static void get(File file, List<Calendar[]> limits, List<Med[]> meds, String... tags) {
 		InputStream is = null;
@@ -268,8 +263,10 @@ public class EspMed {
 					dis.skip(POS_TAG_INFO);
 			}
 
-			if (posFile2ch.size() == 0)
+			if (posFile2ch.size() == 0) {
+				dis.close();
 				return;
+			}
 
 			b = new byte[bytes];
 
@@ -281,8 +278,10 @@ public class EspMed {
 			int blocoLength = 2 * POS_DATA_HEADER + dadosDoMinuto;
 			// número de blocos para cada instante de tempo
 			int blocos = dis.available() / blocoLength;
-			if (blocos != periods)
+			if (blocos != periods) {
+				dis.close();
 				throw new IllegalArgumentException("O número de períodos é diferente do indicado.");
+			}
 
 			// para todos os períodos do arquivo
 			for (int l = 0; l < blocos; l++) {
@@ -351,19 +350,15 @@ public class EspMed {
 	/**
 	 * Função que escreve os dados de valores notáveis em um arquivo .ESP
 	 * 
-	 * @param folder
-	 *            pasta de destino do arquivo (os nomes dos arquivos são definidos
-	 *            em função da data)
-	 * @param tags
-	 *            designação dos valores notáveis
-	 * @param limits
-	 *            lista de períodos de tempo. O primeiro índice designa os
-	 *            diferentes instantes de tempo, enquanto que o segundo alterna
-	 *            entre 0 (instante inicial) e 1 (instante final)
-	 * @param meds
-	 *            lista de vetores com as medições notáveis. O primeiro índice
-	 *            designam os diferentes instantes de tempo, enquanto que o segundo
-	 *            designam os diferentes pontos de medição
+	 * @param folder pasta de destino do arquivo (os nomes dos arquivos são
+	 *               definidos em função da data)
+	 * @param tags   designação dos valores notáveis
+	 * @param limits lista de períodos de tempo. O primeiro índice designa os
+	 *               diferentes instantes de tempo, enquanto que o segundo alterna
+	 *               entre 0 (instante inicial) e 1 (instante final)
+	 * @param meds   lista de vetores com as medições notáveis. O primeiro índice
+	 *               designam os diferentes instantes de tempo, enquanto que o
+	 *               segundo designam os diferentes pontos de medição
 	 */
 	public static void writeFile(String folder, String[] tags, List<Calendar[]> limits, List<Med[]> meds) {
 		if (limits.size() != meds.size())
@@ -594,8 +589,10 @@ public class EspMed {
 			int blocoLength = 2 * POS_DATA_HEADER + dadosDoPeriodo;
 			// número de blocos para cada instante de tempo
 			int blocos = dis.available() / blocoLength;
-			if (blocos != periods)
+			if (blocos != periods) {
+				dis.close();
 				throw new IllegalArgumentException("O número de períodos é diferente do indicado.");
+			}
 
 			// para todos os períodos do arquivo
 			for (int l = 0; l < blocos; l++) {

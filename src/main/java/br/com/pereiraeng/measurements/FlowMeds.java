@@ -3,10 +3,11 @@ package br.com.pereiraeng.measurements;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-import br.com.pereiraeng.math.timeseries.Reg;
-import br.com.pereiraeng.math.timeseries.unit.Meds;
+import br.com.pereiraeng.core.Flow;
 import br.com.pereiraeng.core.TimeUtils;
-import br.com.pereiraeng.io.flow.Flow;
+import br.com.pereiraeng.math.timeseries.Reg;
+import br.com.pereiraeng.math.timeseries.unit.Med;
+import br.com.pereiraeng.math.timeseries.unit.Meds;
 
 public abstract class FlowMeds implements Flow<Meds> {
 

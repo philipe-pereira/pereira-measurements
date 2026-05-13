@@ -27,6 +27,13 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import br.com.pereiraeng.core.Flow;
+import br.com.pereiraeng.core.TimeUtils;
+import br.com.pereiraeng.core.collections.ArrayUtils;
+import br.com.pereiraeng.core.collections.ListUtils;
+import br.com.pereiraeng.core.collections.MapUtils;
+import br.com.pereiraeng.geo.GeoCoordinate;
+import br.com.pereiraeng.geo.objetos.GeoMed;
 import br.com.pereiraeng.math.advanced.geometry.Delaunay;
 import br.com.pereiraeng.math.geometry.Geom;
 import br.com.pereiraeng.math.geometry.Triangle;
@@ -39,13 +46,6 @@ import br.com.pereiraeng.physics.Grandeza;
 import br.com.pereiraeng.sql.SQLadapter;
 import br.com.pereiraeng.sql.SQLconfig;
 import br.com.pereiraeng.sql.Server;
-import br.com.pereiraeng.core.TimeUtils;
-import br.com.pereiraeng.core.collections.ArrayUtils;
-import br.com.pereiraeng.core.collections.ListUtils;
-import br.com.pereiraeng.core.collections.MapUtils;
-import br.com.pereiraeng.geo.GeoCoordinate;
-import br.com.pereiraeng.geo.objetos.GeoMed;
-import br.com.pereiraeng.io.flow.Flow;
 
 /**
  * <p>

@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import br.com.pereiraeng.io.flow.Flow;
+import br.com.pereiraeng.core.Flow;
 import br.com.pereiraeng.math.timeseries.unit.Med;
 import br.com.pereiraeng.sql.SQLadapter;
 

@@ -190,7 +190,7 @@ public class Factor {
 	// ------------------------------- SQL -------------------------------
 
 	/**
-	 * 
+	 * TODO coisa da Cemig
 	 * @param refTag referência da tag alvo
 	 * @return comando SQL
 	 */

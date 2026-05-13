@@ -11,14 +11,15 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import br.com.pereiraeng.math.Spline;
-import br.com.pereiraeng.math.Vec;
-import br.com.pereiraeng.math.advanced.geometry.Delaunay;
-import br.com.pereiraeng.math.geometry.Triangle;
-import br.com.pereiraeng.math.timeseries.RegP;
 import br.com.pereiraeng.core.TimeUtils;
 import br.com.pereiraeng.core.collections.ArrayUtils;
 import br.com.pereiraeng.geo.objetos.GeoMed;
+import br.com.pereiraeng.math.Spline;
+import br.com.pereiraeng.math.Vec;
+import br.com.pereiraeng.math.advanced.geometry.Delaunay;
+import br.com.pereiraeng.math.advanced.statistics.Sta;
+import br.com.pereiraeng.math.geometry.Triangle;
+import br.com.pereiraeng.math.timeseries.RegP;
 
 /**
  * Classe das funções que produzem {@link Sta informações estatísticas} sobre
