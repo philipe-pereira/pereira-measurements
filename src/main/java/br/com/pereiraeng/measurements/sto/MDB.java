@@ -45,7 +45,7 @@ import br.com.pereiraeng.measurements.label.MedEtq;
 import br.com.pereiraeng.physics.Grandeza;
 import br.com.pereiraeng.sql.SQLadapter;
 import br.com.pereiraeng.sql.SQLconfig;
-import br.com.pereiraeng.sql.Server;
+import br.com.pereiraeng.sql.DatabaseEngine;
 
 /**
  * <p>
@@ -2375,7 +2375,7 @@ public class MDB extends SQLadapter {
 
 	/**
 	 * Função que cria uma nova base de dados com as tabelas do sistema de
-	 * armazenamento de medições MDB no {@link Server#MySQL servidor MySQL} local
+	 * armazenamento de medições MDB no {@link DatabaseEngine#MySQL servidor MySQL} local
 	 * 
 	 * @param db         nome da base de dados a ser criada
 	 * @param createDB   <code>true</code> para criar uma nova base de dados,
@@ -2413,7 +2413,7 @@ public class MDB extends SQLadapter {
 	/**
 	 * Função que cria uma nova base de dados com as tabelas do sistema de
 	 * armazenamento de medições MDB no sistema de arquivo (ou seja,
-	 * {@link Server#SQLite sem servidor})
+	 * {@link DatabaseEngine#SQLite sem servidor})
 	 * 
 	 * @param folder     diretório com o arquivo
 	 * @param file       nome do arquivo (sem a terminação .sql)
@@ -2490,7 +2490,7 @@ public class MDB extends SQLadapter {
 	 *                   </ol>
 	 * @param values     número de valores medidos por entrada
 	 */
-	public static void createMDB(Server type, String server, String port, String login, String password, String db,
+	public static void createMDB(DatabaseEngine type, String server, String port, String login, String password, String db,
 			boolean createDB, int tagTables, boolean geoTable, int timeFields, int values) {
 		if (createDB)
 			SQLadapter.createBD(type, server, port, login, password, db);
@@ -2556,10 +2556,10 @@ public class MDB extends SQLadapter {
 					"CREATE TABLE `%s`(`%s` %s, `equip` %s, `ref_eqs` %s, `grandeza` %s, `info` %s, PRIMARY KEY ( `%2$s` ))",
 					METADATA, mdb.getLocalField(),
 					SQLadapter.getTypeName(type, SQLadapter.MEDIUMINT, false, 0, 0, false),
-					type == Server.MySQL ? "ENUM('SE', 'EM')"
+					type == DatabaseEngine.MySQL ? "ENUM('SE', 'EM')"
 							: SQLadapter.getTypeName(type, Types.CHAR, false, 2, 0, false),
 					SQLadapter.getTypeName(type, Types.INTEGER, false, 0, 0, false),
-					type == Server.MySQL ? "ENUM('POTA','TEMP','IRAD','PRES','MM','ANG','VELO','PORC')"
+					type == DatabaseEngine.MySQL ? "ENUM('POTA','TEMP','IRAD','PRES','MM','ANG','VELO','PORC')"
 							: SQLadapter.getTypeName(type, Types.CHAR, false, 4, 0, false),
 					SQLadapter.getTypeName(type, Types.CHAR, false, 1, 0, false)));
 		case 1:
